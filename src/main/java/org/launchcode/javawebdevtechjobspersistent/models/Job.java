@@ -13,6 +13,7 @@ public class Job extends AbstractEntity{
     private Employer employer;
 
     @ManyToMany
+    @NotNull(message="At least one skill is required.  If no skills are listed, please create one using the 'Add Skill' link")
     private  List<Skill> skills = new ArrayList<>();
 
     public Job(Employer anEmployer) {
