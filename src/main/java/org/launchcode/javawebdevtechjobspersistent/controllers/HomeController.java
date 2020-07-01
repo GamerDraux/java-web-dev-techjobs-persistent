@@ -50,7 +50,9 @@ public class HomeController {
 
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-                                       Errors errors, Model model, @RequestParam List<Integer> skills) {
+                                       Errors errors, Model model, @RequestParam @Valid List<Integer> skills) {
+        //TODO - Validate Skills entry on job creation "Using HomeController, Again" part 4
+
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Job");
             model.addAttribute("skills",skillRepository.findAll());
