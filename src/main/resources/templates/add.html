@@ -32,8 +32,15 @@
                    th:value="${skill.id}">
             <label th:text="${skill.name}"></label>
         </th:block>
+
         <p th:errors="${job.skills}"></p>
         <a th:href="@{'/skills/add'}">Add Skills</a>
+        <p th:if="${nullSkills}" class="error">All jobs
+            must
+            have at
+        least one skill attached.  If no skills fit
+        job requirements, please create a new skill
+        using "Add Skills" link.</p>
     </div>
 
     <input type="submit" value="Add Job" />

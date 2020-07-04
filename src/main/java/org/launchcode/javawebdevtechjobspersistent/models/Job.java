@@ -12,7 +12,7 @@ public class Job extends AbstractEntity{
     @NotNull(message="Employer is Required")
     private Employer employer;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @NotNull(message="At least one skill is required.  If no skills are listed, please create one using the 'Add Skill' link")
     private  List<Skill> skills = new ArrayList<>();
 
@@ -40,5 +40,9 @@ public class Job extends AbstractEntity{
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public void addSkillToJob(Skill skill){
+        this.skills.add(skill);
     }
 }
