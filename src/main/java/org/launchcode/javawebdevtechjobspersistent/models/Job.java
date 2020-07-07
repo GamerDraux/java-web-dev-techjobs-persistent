@@ -9,7 +9,7 @@ import java.util.List;
 public class Job extends AbstractEntity{
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @NotNull(message="Employer is Required")
+    @NotNull(message="All jobs must have an employer.  If the correct employer is not listed, or if there are no employers in the list, please create one using the 'Add Employer' link")
     private Employer employer;
 
     @ManyToMany(cascade = CascadeType.ALL)
